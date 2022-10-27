@@ -4,7 +4,10 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/cool-classic-design/coolclassicdesign/issues"
   },
-  "homepage": "https://github.com/cool-classic-design/coolclassicdesign#readme"
+  "homepage": "https://github.com/cool-classic-design/coolclassicdesign#readme",
+  "dependencies": {
+    "concurrently": "^7.5.0"
+  }
 }
