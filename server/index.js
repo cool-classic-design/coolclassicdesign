@@ -1,5 +1,5 @@
 const express = require('express');
-const { route } = require('./routes');
+const routes = require('./routes');
 const path = require('path');
 
 const PORT = process.env.PORT || 3001
@@ -13,6 +13,6 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-app.use(route);
+app.use(routes);
 
 app.listen(PORT, function () { console.log('Server listening on port' + PORT) })
