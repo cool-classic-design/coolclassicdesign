@@ -6,7 +6,7 @@
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended"
     ],
-    "plugins": ["prettier", "react"],
+    "plugins": ["prettier", "react", "jsx-a11y"],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -23,5 +23,14 @@
         "react/jsx-one-expression-per-line": [0],
         "react/prefer-stateless-function": [1],
         "react/static-property-placement": [1, "property assignment"]
+    },
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 }
