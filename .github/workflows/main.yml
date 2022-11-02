@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+    - main
+  workflow_dispatch:
+  
+jobs:
+  my_job:
+    name: deploy to CCL
+    runs-on: ubuntu-22.04
+    steps:
+      - name: connecting to server
+        uses: appleboy/ssh-action@v0.1.2
+        with:
+          host: ${{secrets.CHOST}}
+          key: ${{secrets.CCL_SERVER}}
+          username: ${{secrets.USER}}
+          
+          script: |
+            if [ -d "/ccl/coolclassicdesign" ]; then rm -rf /ccl/coolclassicdesign; fi
+            cd /ccl
+            ssh-agent bash -c 'ssh-add /root/.ssh/client; git clone git@github.com:The-LockBox/the-lockbox-client.git'
+            cd /root/the-lockbox-client
+            npm run deploy
