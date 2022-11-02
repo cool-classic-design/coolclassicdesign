@@ -14,13 +14,13 @@ jobs:
       - name: connecting to server
         uses: appleboy/ssh-action@v0.1.2
         with:
-          host: ${{secrets.CHOST}}
+          host: ${{secrets.HOST}}
           key: ${{secrets.CCL_SERVER}}
           username: ${{secrets.USER}}
           
           script: |
             if [ -d "/ccl/coolclassicdesign" ]; then rm -rf /ccl/coolclassicdesign; fi
             cd /ccl
-            ssh-agent bash -c 'ssh-add /root/.ssh/client; git clone git@github.com:cool-classic-design/coolclassicdesign.git'
+            git clone git@github.com:cool-classic-design/coolclassicdesign.git'
             cd /ccl/coolclassicdesign
             npm run deploy
