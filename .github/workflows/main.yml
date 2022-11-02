@@ -21,6 +21,6 @@ jobs:
           script: |
             if [ -d "/ccl/coolclassicdesign" ]; then rm -rf /ccl/coolclassicdesign; fi
             cd /ccl
-            ssh-agent bash -c 'ssh-add /root/.ssh/client; git clone git@github.com:The-LockBox/the-lockbox-client.git'
-            cd /root/the-lockbox-client
+            ssh-agent bash -c 'ssh-add /root/.ssh/client; git clone git@github.com:cool-classic-design/coolclassicdesign.git'
+            cd /ccl/coolclassicdesign
             npm run deploy
